@@ -92,3 +92,10 @@ input[type="radio"]:checked + .form-check-label {
 .forecast-temperature {
   color: #dad4ec;
 }
+
+.github {
+  text-align: center;
+  font-family: "Nanum Gothic", sans-serif;
+  color: #a68ba5;
+  font-size: 10px;
+}
