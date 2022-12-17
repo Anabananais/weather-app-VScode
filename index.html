@@ -22,30 +22,30 @@
       src="https://kit.fontawesome.com/680e85e9ae.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
       <section class="weather-app shadow">
-        <div class="card border-0">
-          <div class="card-body bg-light">
+        <div class="card border-0 bg-light">
+          <div class="card-body">
             <div class="row g-1">
-              <div class="col-sm g-1 align-items-center">
+              <div class="col g-1 align-items-center">
                 <div class="searcher-bar d-flex justify-content-end">
                   <form id="city-search">
                     <input
                       type="search"
                       class="search-control shadow-sm"
-                      placeholder="Enter a city..."
+                      placeholder="Search for your city..."
                       id="search-city-input"
                       autocomplete="off"
                     />
-                    <span class="col-sm-auto">
+                    <span class="col-auto">
                       <button type="submit" class="btn btn-secondary">
                         <i class="fa-solid fa-magnifying-glass"></i>
                       </button>
                     </span>
-                    <span class="col-sm-auto">
+                    <span class="col-auto">
                       <button
                         type="button"
                         class="btn btn-secondary"
@@ -59,27 +59,21 @@
               </div>
             </div>
             <div class="row g-4">
-              <div class="col-sm-3">
-                <h2 id="app-city">CITY</h2>
-                <h3 id="current-date">Date/Time</h3>
-                <h1>
-                  <span id="main-temp">3</span
-                  ><span class="units">
-                    <a href="#" class="disable-link" id="celsius-link">°C</a> |
-                    <a href="#" id="fahrenheit-link">°F</a>
-                  </span>
-                </h1>
-                <p>Description of the weather</p>
+              <div class="col d-flex">
+                <div>
+                  <h2 class="app-city" id="app-city"></h2>
+                  <h3 id="current-date"></h3>
+                  <h1>
+                    <span id="main-temp"></span>
+                  </h1>
+                  <p id="decription"></p>
+                </div>
+                <div class="d-flex align-items-center">
+                  <img src="" alt="Clear" id="main-icon" class="main-icon" />
+                </div>
               </div>
-              <div
-                class="col-sm-5 d-flex align-items-center justify-content-around"
-              >
-                <img src="images/fog.svg" alt="fog" width="200px" />
-              </div>
-              <div
-                class="col-sm-4 d-flex align-items-stretch justify-content-end"
-              >
-                <div class="radios">
+              <div class="col-sm-4">
+                <div class="radios d-flex justify-content-end">
                   <div class="form-check form-check-inline">
                     <input
                       class="form-check-input"
@@ -88,12 +82,12 @@
                       id="temp-radio"
                       checked
                     />
-                    <label class="form-check-label" for="temp-radio">
-                      <img
-                        src="images/thermometer.svg"
-                        alt="thermometer"
-                        width="40px"
-                      />
+                    <label
+                      class="form-check-label"
+                      title="temperature"
+                      for="temp-radio"
+                    >
+                      <i class="fa-solid fa-temperature-low"></i>
                     </label>
                   </div>
                   <div class="form-check form-check-inline">
@@ -103,15 +97,14 @@
                       name="flexRadioDefault"
                       id="precipitation-radio"
                     />
-                    <label class="form-check-label" for="precipitation-radio">
-                      <img
-                        src="images/humidity.svg"
-                        alt="humidity"
-                        width="40px"
-                      />
+                    <label
+                      class="form-check-label"
+                      title="humidity"
+                      for="precipitation-radio"
+                    >
+                      <i class="fa-solid fa-cloud-showers-heavy"></i>
                     </label>
                   </div>
-
                   <div class="form-check form-check-inline">
                     <input
                       class="form-check-input"
@@ -119,72 +112,31 @@
                       name="flexRadioDefault"
                       id="wind-radio"
                     />
-                    <label class="form-check-label" for="wind-radio">
-                      <img src="images/windsock.svg" alt="wind" width="40px" />
+                    <label
+                      class="form-check-label"
+                      title="wind speed"
+                      for="wind-radio"
+                    >
+                      <i class="fa-solid fa-wind"></i>
                     </label>
                   </div>
                 </div>
               </div>
             </div>
             <hr />
-            <div class="row g-2">
-              <div class="col-sm">
-                <div class="card text-center shadow-sm border-0">
-                  <div class="card-body bg-white p-1">
-                    <h5 class="forecast-day-title">Day 1</h5>
-                    <img src="images/fog.svg" alt="fog" width="100px" />
-                    <p class="forecast-temperature"><strong>Max</strong>/Min</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm">
-                <div class="card text-center shadow-sm border-0">
-                  <div class="card-body bg-white p-1">
-                    <h5 class="forecast-day-title">Day 2</h5>
-                    <img src="images/sleet.svg" alt="sleet" width="100px" />
-                    <p class="forecast-temperature"><strong>Max</strong>/Min</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm">
-                <div class="card text-center shadow-sm border-0">
-                  <div class="card-body bg-white p-1">
-                    <h5 class="forecast-day-title">Day 3</h5>
-                    <img src="images/cloud.svg" alt="cloud" width="100px" />
-                    <p class="forecast-temperature"><strong>Max</strong>/Min</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm">
-                <div class="card text-center shadow-sm border-0">
-                  <div class="card-body bg-white p-1">
-                    <h5 class="forecast-day-title">Day 4</h5>
-                    <img src="images/rain.svg" alt="rain" width="100px" />
-                    <p class="forecast-temperature"><strong>Max</strong>/Min</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm">
-                <div class="card text-center shadow-sm border-0">
-                  <div class="card-body bg-white p-1">
-                    <h5 class="forecast-day-title">Day 5</h5>
-                    <img src="images/rain.svg" alt="rain" width="100px" />
-                    <p class="forecast-temperature"><strong>Max</strong>/Min</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+          <footer>
 
+            <footer class="github">
+              Coded by Anaïs Mullard, open sourced on
+              <a
+                href="https://github.com/Anabananais/weather-app-VScode"
+                target="_blank"
+                >Github</a
+              >. Hosted on Netlify.
+            </footer>
+          </footer>
+        </div>
+    </div>
     <script src="src/index.js"></script>
   </body>
-  <footer class="github">
-    Coded by Anaïs Mullard, open sourced on
-    <a href="https://github.com/Anabananais/weather-app-VScode" target="_blank"
-      >Github</a
-    >. Hosted on Netlify.
-  </footer>
 </html>

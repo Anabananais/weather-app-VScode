@@ -1,8 +1,8 @@
 body {
-  background-size: cover;
   font-family: "Nanum Gothic", sans-serif;
-  background: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+  background: linear-gradient(to top, #dad4ec 100%, #dad4ec 1%, #704e74 10%);
 }
+
 .weather-app {
   display: block;
   margin: 120px auto;
